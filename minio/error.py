@@ -177,6 +177,7 @@ class ResponseError(MinioError):
         if len(self._response.data) == 0:
             raise ValueError('response data has no body.')
         try:
+            print(self._response.data)
             root = cElementTree.fromstring(self._response.data)
         except _ETREE_EXCEPTIONS as error:
             raise InvalidXMLError('"Error" XML is not parsable. '
